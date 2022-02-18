@@ -112,7 +112,7 @@ class _HomePagefeedWidgetState extends State<HomePagefeedWidget> {
                     ),
                     Expanded(
                       child: Container(
-                        width: MediaQuery.of(context).size.width,
+                        width: 100,
                         height: 170,
                         decoration: BoxDecoration(
                           color: Color(0xFFEEEEEE),
@@ -602,17 +602,21 @@ class _HomePagefeedWidgetState extends State<HomePagefeedWidget> {
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         0, 0, 5, 10),
-                                    child: ClipRRect(
-                                      borderRadius: BorderRadius.circular(2),
-                                      child: Image.network(
-                                        'https://picsum.photos/seed/533/600',
-                                        width:
-                                            MediaQuery.of(context).size.width *
-                                                0.1,
-                                        height:
-                                            MediaQuery.of(context).size.height *
-                                                0.05,
-                                        fit: BoxFit.cover,
+                                    child: Container(
+                                      child: ClipRRect(
+                                        borderRadius: BorderRadius.circular(2),
+                                        child: Image.network(
+                                          'https://picsum.photos/seed/533/600',
+                                          width: MediaQuery.of(context)
+                                                  .size
+                                                  .width *
+                                              0.1,
+                                          height: MediaQuery.of(context)
+                                                  .size
+                                                  .height *
+                                              0.05,
+                                          fit: BoxFit.cover,
+                                        ),
                                       ),
                                     ),
                                   ),

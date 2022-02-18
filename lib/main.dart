@@ -9,6 +9,7 @@ import 'package:home_screen_feed/edit_discount/edit_discount_widget.dart';
 import 'package:home_screen_feed/edit_promotion/edit_promotion_widget.dart';
 import 'package:home_screen_feed/home_empty_item_list/home_empty_item_list_widget.dart';
 import 'package:home_screen_feed/home_review_and_ratings/home_review_and_ratings_widget.dart';
+import 'package:home_screen_feed/home_stor_preview/home_stor_preview_widget.dart';
 import 'package:home_screen_feed/order_cancel/order_cancel_widget.dart';
 
 import 'flutter_flow/flutter_flow_theme.dart';
@@ -46,7 +47,7 @@ class _MyAppState extends State<MyApp> {
       supportedLocales: const [Locale('en', '')],
       theme: ThemeData(primarySwatch: Colors.blue),
       debugShowCheckedModeBanner: false,
-      home: HomeReviewAndRatingsWidget(),
+      home: EditPromotionWidget(),
     );
   }
 }

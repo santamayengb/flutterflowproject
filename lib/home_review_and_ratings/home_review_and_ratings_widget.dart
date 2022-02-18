@@ -3,7 +3,6 @@ import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../main.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class HomeReviewAndRatingsWidget extends StatefulWidget {
   const HomeReviewAndRatingsWidget({Key key}) : super(key: key);
@@ -64,21 +63,23 @@ class _HomeReviewAndRatingsWidgetState
             padding: EdgeInsets.zero,
             scrollDirection: Axis.vertical,
             children: [
-              Row(
-                mainAxisSize: MainAxisSize.max,
-                children: [
-                  Expanded(
-                    child: Column(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
-                          child: ReviewPageWidget(),
-                        ),
-                      ],
+              Container(
+                child: Row(
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    Expanded(
+                      child: Column(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
+                            child: ReviewPageWidget(),
+                          ),
+                        ],
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
               Column(
                 mainAxisSize: MainAxisSize.max,

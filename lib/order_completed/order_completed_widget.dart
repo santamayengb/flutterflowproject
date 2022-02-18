@@ -17,7 +17,7 @@ class _OrderCompletedWidgetState extends State<OrderCompletedWidget> {
     return Scaffold(
       key: scaffoldKey,
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        backgroundColor: Color.fromARGB(255, 230, 230, 230),
         automaticallyImplyLeading: false,
         title: Text(
           'Orders',
@@ -27,7 +27,7 @@ class _OrderCompletedWidgetState extends State<OrderCompletedWidget> {
         centerTitle: false,
         elevation: 4,
       ),
-      backgroundColor: FlutterFlowTheme.tertiaryColor,
+      backgroundColor: Color(0xFFEBEBEB),
       body: SafeArea(
         child: GestureDetector(
           onTap: () => FocusScope.of(context).unfocus(),
@@ -70,35 +70,53 @@ class _OrderCompletedWidgetState extends State<OrderCompletedWidget> {
                           fontSize: 32,
                         ),
                       ),
-                      ListView(
-                        padding: EdgeInsets.zero,
-                        // scrollDirection: Axis.vertical,
-                        children: [
-                          Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
-                            child: Container(
-                              width: 100,
-                              height: MediaQuery.of(context).size.height * 0.90,
-                              decoration: BoxDecoration(
-                                color: Color(0xFFEEEEEE),
+                      Expanded(
+                        child: ListView(
+                          padding: EdgeInsets.zero,
+                          shrinkWrap: true,
+                          scrollDirection: Axis.vertical,
+                          children: [
+                            Card(
+                              clipBehavior: Clip.antiAliasWithSaveLayer,
+                              color: Colors.white,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(0),
                               ),
-                              child: OdercomponentWidget(),
+                              child: Container(
+                                height:
+                                    MediaQuery.of(context).size.height * 0.48,
+                                decoration: BoxDecoration(),
+                                child: OdercomponentWidget(),
+                              ),
                             ),
-                          ),
-                          // Padding(
-                          //   padding:
-                          //       EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
-                          //   child: Container(
-                          //     width: 100,
-                          //     height: MediaQuery.of(context).size.height * 0.42,
-                          //     decoration: BoxDecoration(
-                          //       color: Color(0xFFEEEEEE),
-                          //     ),
-                          //     child: OdercomponentWidget(),
-                          //   ),
-                          // ),
-                        ],
+                            Card(
+                              clipBehavior: Clip.antiAliasWithSaveLayer,
+                              color: Colors.white,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(0),
+                              ),
+                              child: Container(
+                                height:
+                                    MediaQuery.of(context).size.height * 0.48,
+                                decoration: BoxDecoration(),
+                                child: OdercomponentWidget(),
+                              ),
+                            ),
+                            Card(
+                              clipBehavior: Clip.antiAliasWithSaveLayer,
+                              color: Colors.white,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(0),
+                              ),
+                              child: Container(
+                                height:
+                                    MediaQuery.of(context).size.height * 0.48,
+                                decoration: BoxDecoration(),
+                                child: OdercomponentWidget(),
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     ],
                   ),

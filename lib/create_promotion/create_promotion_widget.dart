@@ -6,15 +6,21 @@ import '../flutter_flow/flutter_flow_widgets.dart';
 import '../custom_code/widgets/index.dart' as custom_widgets;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:intl/intl.dart';
+import 'package:syncfusion_flutter_datepicker/datepicker.dart';
 
 class CreatePromotionWidget extends StatefulWidget {
-  const CreatePromotionWidget({Key key}) : super(key: key);
+  const CreatePromotionWidget({Key key, this.title}) : super(key: key);
+
+  final String title;
 
   @override
   _CreatePromotionWidgetState createState() => _CreatePromotionWidgetState();
 }
 
 class _CreatePromotionWidgetState extends State<CreatePromotionWidget> {
+  DateRangePickerController _datePickerController = DateRangePickerController();
+
   String choiceChipsValue1;
   TextEditingController textController1;
   TextEditingController textController2;
@@ -101,28 +107,15 @@ class _CreatePromotionWidgetState extends State<CreatePromotionWidget> {
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       children: [
-                        Container(
-                          width: MediaQuery.of(context).size.width * 0.95,
-                          height: 50,
-                          decoration: BoxDecoration(
-                            color: Color(0xFFEEEEEE),
-                            borderRadius: BorderRadius.circular(1),
-                            border: Border.all(
-                              color: Color(0x49515050),
-                            ),
-                          ),
+                        Expanded(
                           child: TextFormField(
                             controller: textController1,
                             obscureText: false,
                             decoration: InputDecoration(
-                              hintText: 'Discount Name*',
-                              hintStyle: FlutterFlowTheme.bodyText1.override(
-                                fontFamily: 'Poppins',
-                                color: Color(0xF0303030),
-                              ),
+                              hintText: 'Promo Name *',
                               enabledBorder: OutlineInputBorder(
                                 borderSide: BorderSide(
-                                  color: Color(0x00000000),
+                                  color: Color(0x619E9E9E),
                                   width: 1,
                                 ),
                                 borderRadius: BorderRadius.circular(1),
@@ -134,6 +127,8 @@ class _CreatePromotionWidgetState extends State<CreatePromotionWidget> {
                                 ),
                                 borderRadius: BorderRadius.circular(1),
                               ),
+                              filled: true,
+                              fillColor: Color(0xFFD3D3D3),
                             ),
                             style: FlutterFlowTheme.bodyText1.override(
                               fontFamily: 'Poppins',
@@ -154,7 +149,7 @@ class _CreatePromotionWidgetState extends State<CreatePromotionWidget> {
                             width: 100,
                             height: 100,
                             decoration: BoxDecoration(
-                              color: Color(0x219E9E9E),
+                              color: Color(0xFFD3D3D3),
                               shape: BoxShape.rectangle,
                               border: Border.all(
                                 color: Color(0x619E9E9E),
@@ -252,28 +247,15 @@ class _CreatePromotionWidgetState extends State<CreatePromotionWidget> {
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       children: [
-                        Container(
-                          width: MediaQuery.of(context).size.width * 0.95,
-                          height: 50,
-                          decoration: BoxDecoration(
-                            color: Color(0xFFEEEEEE),
-                            borderRadius: BorderRadius.circular(1),
-                            border: Border.all(
-                              color: Color(0x49515050),
-                            ),
-                          ),
+                        Expanded(
                           child: TextFormField(
                             controller: textController3,
                             obscureText: false,
                             decoration: InputDecoration(
-                              hintText: 'Promotion Name*',
-                              hintStyle: FlutterFlowTheme.bodyText1.override(
-                                fontFamily: 'Poppins',
-                                color: Color(0xF0303030),
-                              ),
+                              hintText: 'Promo Value',
                               enabledBorder: OutlineInputBorder(
                                 borderSide: BorderSide(
-                                  color: Color(0x00000000),
+                                  color: Color(0x619E9E9E),
                                   width: 1,
                                 ),
                                 borderRadius: BorderRadius.circular(1),
@@ -285,11 +267,14 @@ class _CreatePromotionWidgetState extends State<CreatePromotionWidget> {
                                 ),
                                 borderRadius: BorderRadius.circular(1),
                               ),
+                              filled: true,
+                              fillColor: Color(0xFFD3D3D3),
                             ),
                             style: FlutterFlowTheme.bodyText1.override(
                               fontFamily: 'Poppins',
                               color: Color(0xF0303030),
                             ),
+                            keyboardType: TextInputType.number,
                           ),
                         ),
                       ],
@@ -312,7 +297,7 @@ class _CreatePromotionWidgetState extends State<CreatePromotionWidget> {
                           color: Color(0xF0303030),
                         ),
                         hintText: 'Promotion Mode',
-                        fillColor: Color(0x219E9E9E),
+                        fillColor: Color.fromARGB(31, 119, 119, 119),
                         elevation: 2,
                         borderColor: Color(0x619E9E9E),
                         borderWidth: 0,
@@ -354,28 +339,15 @@ class _CreatePromotionWidgetState extends State<CreatePromotionWidget> {
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       children: [
-                        Container(
-                          width: MediaQuery.of(context).size.width * 0.95,
-                          height: 50,
-                          decoration: BoxDecoration(
-                            color: Color(0xFFEEEEEE),
-                            borderRadius: BorderRadius.circular(1),
-                            border: Border.all(
-                              color: Color(0x49515050),
-                            ),
-                          ),
+                        Expanded(
                           child: TextFormField(
-                            controller: textController4,
+                            controller: textController3,
                             obscureText: false,
                             decoration: InputDecoration(
-                              hintText: 'Minimum Order Amount*',
-                              hintStyle: FlutterFlowTheme.bodyText1.override(
-                                fontFamily: 'Poppins',
-                                color: Color(0xF0303030),
-                              ),
+                              hintText: 'Minium order Amount',
                               enabledBorder: OutlineInputBorder(
                                 borderSide: BorderSide(
-                                  color: Color(0x00000000),
+                                  color: Color(0x619E9E9E),
                                   width: 1,
                                 ),
                                 borderRadius: BorderRadius.circular(1),
@@ -387,11 +359,14 @@ class _CreatePromotionWidgetState extends State<CreatePromotionWidget> {
                                 ),
                                 borderRadius: BorderRadius.circular(1),
                               ),
+                              filled: true,
+                              fillColor: Color(0xFFD3D3D3),
                             ),
                             style: FlutterFlowTheme.bodyText1.override(
                               fontFamily: 'Poppins',
                               color: Color(0xF0303030),
                             ),
+                            keyboardType: TextInputType.number,
                           ),
                         ),
                       ],
@@ -402,28 +377,15 @@ class _CreatePromotionWidgetState extends State<CreatePromotionWidget> {
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       children: [
-                        Container(
-                          width: MediaQuery.of(context).size.width * 0.95,
-                          height: 50,
-                          decoration: BoxDecoration(
-                            color: Color(0xFFEEEEEE),
-                            borderRadius: BorderRadius.circular(1),
-                            border: Border.all(
-                              color: Color(0x49515050),
-                            ),
-                          ),
+                        Expanded(
                           child: TextFormField(
-                            controller: textController5,
+                            controller: textController3,
                             obscureText: false,
                             decoration: InputDecoration(
-                              hintText: 'Pomo Usage limit',
-                              hintStyle: FlutterFlowTheme.bodyText1.override(
-                                fontFamily: 'Poppins',
-                                color: Color(0xF0303030),
-                              ),
+                              hintText: 'Promo Usage limit',
                               enabledBorder: OutlineInputBorder(
                                 borderSide: BorderSide(
-                                  color: Color(0x00000000),
+                                  color: Color(0x619E9E9E),
                                   width: 1,
                                 ),
                                 borderRadius: BorderRadius.circular(1),
@@ -435,11 +397,14 @@ class _CreatePromotionWidgetState extends State<CreatePromotionWidget> {
                                 ),
                                 borderRadius: BorderRadius.circular(1),
                               ),
+                              filled: true,
+                              fillColor: Color(0xFFD3D3D3),
                             ),
                             style: FlutterFlowTheme.bodyText1.override(
                               fontFamily: 'Poppins',
                               color: Color(0xF0303030),
                             ),
+                            keyboardType: TextInputType.number,
                           ),
                         ),
                       ],
@@ -464,55 +429,45 @@ class _CreatePromotionWidgetState extends State<CreatePromotionWidget> {
                       ),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: [
-                          Expanded(
-                            child: TextFormField(
-                              controller: textController6,
-                              obscureText: false,
-                              decoration: InputDecoration(
-                                hintText: 'Start - End Date and Time',
-                                hintStyle: FlutterFlowTheme.bodyText1.override(
-                                  fontFamily: 'Poppins',
-                                  color: Color(0xF0303030),
-                                ),
-                                enabledBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color: Color(0x00000000),
-                                    width: 1,
-                                  ),
-                                  borderRadius: const BorderRadius.only(
-                                    topLeft: Radius.circular(4.0),
-                                    topRight: Radius.circular(4.0),
-                                  ),
-                                ),
-                                focusedBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color: Color(0x00000000),
-                                    width: 1,
-                                  ),
-                                  borderRadius: const BorderRadius.only(
-                                    topLeft: Radius.circular(4.0),
-                                    topRight: Radius.circular(4.0),
-                                  ),
-                                ),
-                              ),
-                              style: FlutterFlowTheme.bodyText1.override(
-                                fontFamily: 'Poppins',
-                                color: Color(0xF0303030),
-                              ),
-                            ),
-                          ),
-                          Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(0, 0, 10, 0),
-                            child: Icon(
-                              Icons.calendar_today_outlined,
-                              color: Colors.black,
-                              size: 24,
-                            ),
-                          ),
-                        ],
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+
+                        // children: [
+                        //   SfDateRangePicker(
+                        //     view: DateRangePickerView.month,
+                        //     monthViewSettings: DateRangePickerMonthViewSettings(
+                        //         firstDayOfWeek: 6),
+                        //     selectionMode:
+                        //         DateRangePickerSelectionMode.multiRange,
+                        //     //onSelectionChanged: _onSelectionChanged,
+                        //     showActionButtons: true,
+                        //     controller: _datePickerController,
+                        //     onSubmit: (Object val) {
+                        //       print(val);
+                        //     },
+                        //     onCancel: () {
+                        //       _datePickerController.selectedRanges = null;
+                        //     },
+                        //   ),
+                        // ],
+                        // children: [
+                        //   InkWell(
+                        //     child: Text(
+                        //       _selectedDate,
+                        //       textAlign: TextAlign.center,
+                        //       style: TextStyle(color: Colors.black),
+                        //     ),
+                        //     onTap: () {
+                        //       _selectDate(context);
+                        //     },
+                        //   ),
+                        //   IconButton(
+                        //     icon: Icon(Icons.calendar_today),
+                        //     tooltip: 'Tap to open date picker',
+                        //     onPressed: () {
+                        //       _selectDate(context);
+                        //     },
+                        //   ),
+                        // ],
                       ),
                     ),
                   ),
@@ -554,8 +509,8 @@ class _CreatePromotionWidgetState extends State<CreatePromotionWidget> {
                           style: FlutterFlowTheme.bodyText1,
                         ),
                         custom_widgets.Switchonoff(
-                          width: MediaQuery.of(context).size.width * 0.1,
-                          height: MediaQuery.of(context).size.height * 0.03,
+                          width: 5,
+                          height: 5,
                         ),
                       ],
                     ),
@@ -565,28 +520,15 @@ class _CreatePromotionWidgetState extends State<CreatePromotionWidget> {
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       children: [
-                        Container(
-                          width: MediaQuery.of(context).size.width * 0.95,
-                          height: 50,
-                          decoration: BoxDecoration(
-                            color: Color(0xFFEEEEEE),
-                            borderRadius: BorderRadius.circular(1),
-                            border: Border.all(
-                              color: Color(0x49515050),
-                            ),
-                          ),
+                        Expanded(
                           child: TextFormField(
-                            controller: textController7,
+                            controller: textController3,
                             obscureText: false,
                             decoration: InputDecoration(
-                              hintText: 'usages limit per user',
-                              hintStyle: FlutterFlowTheme.bodyText1.override(
-                                fontFamily: 'Poppins',
-                                color: Color(0xFF303030),
-                              ),
+                              hintText: 'Usage limit per user',
                               enabledBorder: OutlineInputBorder(
                                 borderSide: BorderSide(
-                                  color: Color(0x00000000),
+                                  color: Color(0x619E9E9E),
                                   width: 1,
                                 ),
                                 borderRadius: BorderRadius.circular(1),
@@ -598,10 +540,12 @@ class _CreatePromotionWidgetState extends State<CreatePromotionWidget> {
                                 ),
                                 borderRadius: BorderRadius.circular(1),
                               ),
+                              filled: true,
+                              fillColor: Color(0xFFD3D3D3),
                             ),
                             style: FlutterFlowTheme.bodyText1.override(
                               fontFamily: 'Poppins',
-                              color: Color(0xFF303030),
+                              color: Color(0xF0303030),
                             ),
                             keyboardType: TextInputType.number,
                           ),
@@ -620,8 +564,8 @@ class _CreatePromotionWidgetState extends State<CreatePromotionWidget> {
                           style: FlutterFlowTheme.bodyText1,
                         ),
                         custom_widgets.Switchonoff(
-                          width: MediaQuery.of(context).size.width * 0.1,
-                          height: MediaQuery.of(context).size.height * 0.03,
+                          width: 5,
+                          height: 5,
                         ),
                       ],
                     ),
@@ -631,29 +575,16 @@ class _CreatePromotionWidgetState extends State<CreatePromotionWidget> {
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       children: [
-                        Container(
-                          width: MediaQuery.of(context).size.width * 0.95,
-                          height: 50,
-                          decoration: BoxDecoration(
-                            color: Color(0xFFEEEEEE),
-                            borderRadius: BorderRadius.circular(1),
-                            border: Border.all(
-                              color: Color(0x49515050),
-                            ),
-                          ),
+                        Expanded(
                           child: TextFormField(
-                            controller: textController8,
+                            controller: textController3,
                             obscureText: false,
                             decoration: InputDecoration(
                               hintText:
                                   'To enable promo on 1st order only, enter 1',
-                              hintStyle: FlutterFlowTheme.bodyText1.override(
-                                fontFamily: 'Poppins',
-                                color: Color(0xF0303030),
-                              ),
                               enabledBorder: OutlineInputBorder(
                                 borderSide: BorderSide(
-                                  color: Color(0x00000000),
+                                  color: Color(0x619E9E9E),
                                   width: 1,
                                 ),
                                 borderRadius: BorderRadius.circular(1),
@@ -665,6 +596,8 @@ class _CreatePromotionWidgetState extends State<CreatePromotionWidget> {
                                 ),
                                 borderRadius: BorderRadius.circular(1),
                               ),
+                              filled: true,
+                              fillColor: Color(0xFFD3D3D3),
                             ),
                             style: FlutterFlowTheme.bodyText1.override(
                               fontFamily: 'Poppins',

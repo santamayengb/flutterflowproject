@@ -14,6 +14,7 @@ class EditDiscountWidget extends StatefulWidget {
 }
 
 class _EditDiscountWidgetState extends State<EditDiscountWidget> {
+  String _selectedValue;
   String choiceChipsValue1;
   TextEditingController textController1;
   TextEditingController textController2;
@@ -86,43 +87,32 @@ class _EditDiscountWidgetState extends State<EditDiscountWidget> {
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0, 15, 0, 0),
+                    padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       children: [
-                        Container(
-                          width: MediaQuery.of(context).size.width * 0.95,
-                          height: 50,
-                          decoration: BoxDecoration(
-                            color: Color(0xFFEEEEEE),
-                            borderRadius: BorderRadius.circular(2),
-                            border: Border.all(
-                              color: Color(0x49515050),
-                            ),
-                          ),
+                        Expanded(
                           child: TextFormField(
                             controller: textController1,
                             obscureText: false,
                             decoration: InputDecoration(
-                              hintText: 'Discount Name*',
-                              hintStyle: FlutterFlowTheme.bodyText1.override(
-                                fontFamily: 'Poppins',
-                                color: Color(0xF0303030),
-                              ),
+                              hintText: 'Discount Name *',
                               enabledBorder: OutlineInputBorder(
                                 borderSide: BorderSide(
-                                  color: Color(0x00000000),
+                                  color: Color(0x619E9E9E),
                                   width: 1,
                                 ),
-                                borderRadius: BorderRadius.circular(0),
+                                borderRadius: BorderRadius.circular(1),
                               ),
                               focusedBorder: OutlineInputBorder(
                                 borderSide: BorderSide(
                                   color: Color(0x00000000),
                                   width: 1,
                                 ),
-                                borderRadius: BorderRadius.circular(0),
+                                borderRadius: BorderRadius.circular(1),
                               ),
+                              filled: true,
+                              fillColor: Color(0xFFD3D3D3),
                             ),
                             style: FlutterFlowTheme.bodyText1.override(
                               fontFamily: 'Poppins',
@@ -143,7 +133,7 @@ class _EditDiscountWidgetState extends State<EditDiscountWidget> {
                             width: 100,
                             height: 100,
                             decoration: BoxDecoration(
-                              color: Color(0x219E9E9E),
+                              color: Color(0xFFD3D3D3),
                               shape: BoxShape.rectangle,
                               border: Border.all(
                                 color: Color(0x619E9E9E),
@@ -245,50 +235,28 @@ class _EditDiscountWidgetState extends State<EditDiscountWidget> {
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       children: [
-                        Container(
-                          width: MediaQuery.of(context).size.width * 0.95,
-                          height: MediaQuery.of(context).size.height * 0.08,
-                          decoration: BoxDecoration(
-                            color: Color(0xFFEEEEEE),
-                            borderRadius: BorderRadius.only(
-                              bottomLeft: Radius.circular(0),
-                              bottomRight: Radius.circular(1),
-                              topLeft: Radius.circular(1),
-                              topRight: Radius.circular(1),
-                            ),
-                            border: Border.all(
-                              color: Color(0x49515050),
-                            ),
-                          ),
+                        Expanded(
                           child: TextFormField(
-                            controller: textController3,
+                            controller: textController1,
                             obscureText: false,
                             decoration: InputDecoration(
                               hintText: 'Discount Value',
-                              hintStyle: FlutterFlowTheme.bodyText1.override(
-                                fontFamily: 'Poppins',
-                                color: Color(0xF0303030),
-                              ),
                               enabledBorder: OutlineInputBorder(
                                 borderSide: BorderSide(
-                                  color: Color(0x00000000),
+                                  color: Color(0x619E9E9E),
                                   width: 1,
                                 ),
-                                borderRadius: const BorderRadius.only(
-                                  topLeft: Radius.circular(4.0),
-                                  topRight: Radius.circular(4.0),
-                                ),
+                                borderRadius: BorderRadius.circular(1),
                               ),
                               focusedBorder: OutlineInputBorder(
                                 borderSide: BorderSide(
                                   color: Color(0x00000000),
                                   width: 1,
                                 ),
-                                borderRadius: const BorderRadius.only(
-                                  topLeft: Radius.circular(4.0),
-                                  topRight: Radius.circular(4.0),
-                                ),
+                                borderRadius: BorderRadius.circular(1),
                               ),
+                              filled: true,
+                              fillColor: Color(0xFFD3D3D3),
                             ),
                             style: FlutterFlowTheme.bodyText1.override(
                               fontFamily: 'Poppins',
@@ -394,6 +362,62 @@ class _EditDiscountWidgetState extends State<EditDiscountWidget> {
                       ],
                     ),
                   ),
+
+                  Padding(
+                    padding: const EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
+                    child: Container(
+                      width: MediaQuery.of(context).size.width,
+                      height: MediaQuery.of(context).size.height * 0.1,
+                      decoration: const BoxDecoration(
+                        color: Color.fromARGB(255, 255, 255, 255),
+                      ),
+                      child: InputDecorator(
+                        decoration: InputDecoration(
+                          labelText: 'Select Product',
+                          border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(2)),
+                          contentPadding: const EdgeInsets.all(15),
+                        ),
+                        child: DropdownButton<String>(
+                          focusColor: Colors.white,
+                          value: _selectedValue,
+                          //elevation: 5,
+                          underline: Container(),
+                          style: const TextStyle(color: Colors.white),
+                          iconEnabledColor: Colors.black,
+
+                          isExpanded: true,
+
+                          items: <String>[
+                            'Schezwan Noodles',
+                            'chicken Noodles',
+                            'vegetable Noodles'
+                          ].map<DropdownMenuItem<String>>((String value) {
+                            return DropdownMenuItem<String>(
+                              value: value,
+                              child: Text(
+                                value,
+                                style: const TextStyle(color: Colors.black),
+                              ),
+                            );
+                          }).toList(),
+                          hint: const Text(
+                            "Please choose a Noodles",
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 14,
+                                fontWeight: FontWeight.w500),
+                          ),
+                          onChanged: (value) {
+                            setState(() {
+                              _selectedValue = value;
+                            });
+                          },
+                        ),
+                      ),
+                    ),
+                  ),
+
                   // Padding(
                   //   padding: EdgeInsetsDirectional.fromSTEB(0, 15, 10, 0),
                   //   child: Row(

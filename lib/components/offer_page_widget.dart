@@ -20,7 +20,7 @@ class _OfferPageWidgetState extends State<OfferPageWidget> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsetsDirectional.fromSTEB(5, 5, 5, 5),
+      padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
       child: Stack(
         children: [
           Container(

@@ -14,107 +14,178 @@ class CreateStoryWidget extends StatefulWidget {
 
 class _CreateStoryWidgetState extends State<CreateStoryWidget> {
   final scaffoldKey = GlobalKey<ScaffoldState>();
+  String _chosenValue;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
       appBar: AppBar(
-        backgroundColor: Color(0x6CFFFFFF),
-        iconTheme: IconThemeData(color: FlutterFlowTheme.tertiaryColor),
+        backgroundColor: const Color(0xFFF5F5F5),
+        iconTheme: const IconThemeData(color: Colors.black),
         automaticallyImplyLeading: true,
-        leading: Icon(
+        leading: const Icon(
           Icons.close,
           color: Colors.black,
           size: 30,
         ),
-        title: Padding(
+        title: const Padding(
           padding: EdgeInsetsDirectional.fromSTEB(0, 0, 100, 0),
           child: Text(
-            'Create Story',
+            'Create Strory',
             textAlign: TextAlign.center,
-            style: FlutterFlowTheme.title1,
+            style: TextStyle(
+                fontFamily: "Roboto", fontSize: 20, color: Colors.black),
           ),
         ),
-        actions: [],
+        actions: const [],
         centerTitle: true,
         elevation: 4,
       ),
-      backgroundColor: Color(0xFFF5F5F5),
+      backgroundColor: const Color.fromARGB(255, 255, 255, 255),
       body: SafeArea(
         child: Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(15, 10, 10, 10),
+          padding: const EdgeInsetsDirectional.fromSTEB(15, 10, 10, 10),
           child: Column(
             mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Column(
+              Row(
                 mainAxisSize: MainAxisSize.max,
                 children: [
-                  Container(
-                    width: MediaQuery.of(context).size.width,
-                    height: MediaQuery.of(context).size.height * 0.4,
-                    decoration: BoxDecoration(
-                      color: Color(0xFFEEEEEE),
-                    ),
+                  Expanded(
                     child: Image.asset(
                       'assets/images/20_Home-upload_Image.png',
                       width: 100,
-                      height: 100,
+                      height: MediaQuery.of(context).size.height * 0.4,
                       fit: BoxFit.cover,
                     ),
                   ),
                 ],
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
-                child: Row(
-                  mainAxisSize: MainAxisSize.max,
-                  children: [
-                    custom_widgets.Linkstory(
-                      width: MediaQuery.of(context).size.width * 0.93,
-                      height: MediaQuery.of(context).size.height * 0.1,
+                padding: const EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
+                child: Container(
+                  width: MediaQuery.of(context).size.width,
+                  height: MediaQuery.of(context).size.height * 0.1,
+                  decoration: const BoxDecoration(
+                    color: Color.fromARGB(255, 255, 255, 255),
+                  ),
+                  child: InputDecorator(
+                    decoration: InputDecoration(
+                      labelText: 'Link story to',
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(2)),
+                      contentPadding: const EdgeInsets.all(5),
                     ),
-                  ],
+                    child: DropdownButton<String>(
+                      focusColor: Colors.white,
+                      value: _chosenValue,
+                      //elevation: 5,
+                      underline: Container(),
+                      style: const TextStyle(color: Colors.white),
+                      iconEnabledColor: Colors.black,
+
+                      isExpanded: true,
+
+                      items: <String>['None', 'Product', 'Category']
+                          .map<DropdownMenuItem<String>>((String value) {
+                        return DropdownMenuItem<String>(
+                          value: value,
+                          child: Text(
+                            value,
+                            style: const TextStyle(color: Colors.black),
+                          ),
+                        );
+                      }).toList(),
+                      hint: const Text(
+                        "Product",
+                        style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 14,
+                            fontWeight: FontWeight.w500),
+                      ),
+                      onChanged: (value) {
+                        setState(() {
+                          _chosenValue = value;
+                        });
+                      },
+                    ),
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
+                child: Container(
+                  width: MediaQuery.of(context).size.width,
+                  height: MediaQuery.of(context).size.height * 0.1,
+                  decoration: const BoxDecoration(
+                    color: Color.fromARGB(255, 255, 255, 255),
+                  ),
+                  child: InputDecorator(
+                    decoration: InputDecoration(
+                      labelText: 'Select Product',
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(2)),
+                      contentPadding: const EdgeInsets.all(5),
+                    ),
+                    child: DropdownButton<String>(
+                      focusColor: Colors.white,
+                      value: _chosenValue,
+                      //elevation: 5,
+                      underline: Container(),
+                      style: const TextStyle(color: Colors.white),
+                      iconEnabledColor: Colors.black,
+
+                      isExpanded: true,
+
+                      items: <String>[
+                        'Schezwan Noodles',
+                        'chicken Noodles',
+                        'vegetable Noodles'
+                      ].map<DropdownMenuItem<String>>((String value) {
+                        return DropdownMenuItem<String>(
+                          value: value,
+                          child: Text(
+                            value,
+                            style: const TextStyle(color: Colors.black),
+                          ),
+                        );
+                      }).toList(),
+                      hint: const Text(
+                        "Please choose a Noodles",
+                        style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 14,
+                            fontWeight: FontWeight.w500),
+                      ),
+                      onChanged: (value) {
+                        setState(() {
+                          _chosenValue = value;
+                        });
+                      },
+                    ),
+                  ),
                 ),
               ),
               Row(
                 mainAxisSize: MainAxisSize.max,
                 children: [
-                  custom_widgets.Createstory(
-                    width: MediaQuery.of(context).size.width * 0.93,
-                    height: MediaQuery.of(context).size.height * 0.1,
+                  Expanded(
+                    child: Padding(
+                        padding:
+                            const EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
+                        child: ElevatedButton(
+                          onPressed: () {},
+                          child: const Text('SHARE'),
+                          style: ElevatedButton.styleFrom(
+                              primary: const Color.fromARGB(255, 255, 18, 1),
+                              textStyle: const TextStyle(
+                                  fontSize: 20, fontWeight: FontWeight.bold)),
+                        )),
                   ),
                 ],
-              ),
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0, 15, 0, 0),
-                child: Row(
-                  mainAxisSize: MainAxisSize.max,
-                  children: [
-                    Expanded(
-                      child: FFButtonWidget(
-                        onPressed: () {
-                          print('Button pressed ...');
-                        },
-                        text: 'Share',
-                        options: FFButtonOptions(
-                          width: 130,
-                          height: 40,
-                          color: Color(0xFFD32F2F),
-                          textStyle: FlutterFlowTheme.subtitle2.override(
-                            fontFamily: 'Poppins',
-                            color: Colors.white,
-                          ),
-                          borderSide: BorderSide(
-                            color: Colors.transparent,
-                            width: 1,
-                          ),
-                          borderRadius: 12,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
               ),
             ],
           ),
