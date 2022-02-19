@@ -47,7 +47,7 @@ class _MyAppState extends State<MyApp> {
       supportedLocales: const [Locale('en', '')],
       theme: ThemeData(primarySwatch: Colors.blue),
       debugShowCheckedModeBanner: false,
-      home: EditPromotionWidget(),
+      home: HomePagefeedWidget(),
     );
   }
 }
