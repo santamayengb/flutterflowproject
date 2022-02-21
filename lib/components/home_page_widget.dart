@@ -13,7 +13,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsetsDirectional.fromSTEB(0, 0, 5, 0),
+      padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
       child: Stack(
         children: [
           ClipRRect(
